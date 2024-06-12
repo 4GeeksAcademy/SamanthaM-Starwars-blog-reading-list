@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			
+			//people 
 			fetchGetAllPeople: () => { 
 				fetch("https://swapi.dev/api/people")
 				.then(response => response.json())	
@@ -17,18 +18,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.catch(error => console.log("Something went wrong, check me out:", error))
 			},
+			//planets 
 			fetchGetAllPlanets: async () => {
 				const response = await fetch("https://swapi.dev/api/planets");
 				let data = await response.json();
 			
 				setStore({planets:data.results});
 			},
+			//vehicles
 			fetchGetAllVehicles: async () => {
 				const response = await fetch("https://swapi.dev/api/vehicles");
 				let data = await response.json();
 				
 				setStore({vehicles:data.results});
 			},
+			//favorites
 			addFavorite: (name) => {
 				const favorites = getStore().favorites
 				favorites.push(name)

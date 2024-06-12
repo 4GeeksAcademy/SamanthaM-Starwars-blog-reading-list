@@ -11,7 +11,6 @@ const Profile = (props) => {
     let field 
     let item = store[`${params.type}`][`${params.index}`]
 
-    // need help displaying profiles correctly 
 
     params.type === "people" ? (
         field = (
